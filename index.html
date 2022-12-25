@@ -47,9 +47,9 @@
         #ground {
             position: absolute;
             width: 100%;
-            height: 15vh;
+            height: calc(15 * var(--vh));
             background-color: white;
-            margin-top: 85vh;            
+            margin-top: calc(85 * var(--vh));            
         }
 
         .triangle {
@@ -71,7 +71,7 @@
 
         #title {
             position: fixed;
-            top: 20vh;
+            top: calc(20 * var(--vh));
             display: flex;
             width: 100%;
             align-items: center;
@@ -85,8 +85,8 @@
 
         #main-text {
             position: absolute;
-            top: 40vh;
-            max-height: 30vh;
+            top: calc(40 * var(--vh));
+            max-height: calc(30 * var(--vh));
             width: 80vw;
             left: 10vw;
             padding: 10px;
@@ -174,6 +174,9 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
         class Snow extends React.Component {
             constructor(props){
                 super(props);
@@ -223,7 +226,7 @@
                 let style = {
                     fontSize: (this.state.size * 3 + 6) + 'px',
                     left: this.state.leftOffset + 'vw',
-                    top: this.state.topOffset + 'vh',
+                    top: 'calc(' + this.state.topOffset + '* var(--vh))',
                     animationDuration: this.state.duration + 's',
                     animationDelay: this.state.delay + 's',
                 };
@@ -274,26 +277,26 @@
                         <Star size = '9'/>
                         <Star size = '10'/>
 
-                        <div style = {{position: 'absolute', left: 'calc(5vw - 25px)', top: '83.4vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(15vw - 25px)', top: '83.6vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(25vw - 25px)', top: '80.6vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(35vw - 25px)', top: '77vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(45vw - 25px)', top: '76.2vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(55vw - 25px)', top: '78.9vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(65vw - 25px)', top: '82.6vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(75vw - 25px)', top: '84vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(85vw - 25px)', top: '81.6vh'}}><Tree/></div>
-                        <div style = {{position: 'absolute', left: 'calc(95vw - 25px)', top: '77.8vh'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(5vw - 25px)', top: 'calc(83.4 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(15vw - 25px)', top: 'calc(83.6 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(25vw - 25px)', top: 'calc(80.6 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(35vw - 25px)', top: 'calc(77.4 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(45vw - 25px)', top: 'calc(76.2 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(55vw - 25px)', top: 'calc(78.9 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(65vw - 25px)', top: 'calc(82.6 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(75vw - 25px)', top: 'calc(84 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(85vw - 25px)', top: 'calc(81.6 * var(--vh))'}}><Tree/></div>
+                        <div style = {{position: 'absolute', left: 'calc(95vw - 25px)', top: 'calc(77.8 * var(--vh))'}}><Tree/></div>
 
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(10vw - 25px)', top: '78.5vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(20vw - 25px)', top: '76.1vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(30vw - 25px)', top: '77.2vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(40vw - 25px)', top: '80.9vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(50vw - 25px)', top: '81.1vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(60vw - 25px)', top: '83.8vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(70vw - 25px)', top: '83.2vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(80vw - 25px)', top: '79.6vh'}}><Tree/></div>
-                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(90vw - 25px)', top: '76.5vh'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(10vw - 25px)', top: 'calc(78.5 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(20vw - 25px)', top: 'calc(76.1 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(30vw - 25px)', top: 'calc(77.2 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(40vw - 25px)', top: 'calc(80.9 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(50vw - 25px)', top: 'calc(81.1 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(60vw - 25px)', top: 'calc(83.8 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(70vw - 25px)', top: 'calc(83.2 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(80vw - 25px)', top: 'calc(79.6 * var(--vh))'}}><Tree/></div>
+                        <div className= 'filler-tree' style = {{position: 'absolute', left: 'calc(90vw - 25px)', top: 'calc(76.5 * var(--vh))'}}><Tree/></div>
                     <div id='ground'></div>
 
                         <Snow/><Snow/><Snow/><Snow/><Snow/><Snow/><Snow/><Snow/><Snow/><Snow/>
